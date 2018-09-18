@@ -10,15 +10,42 @@ This is homework 1
 
 Here's a **code chunk** that samples from a _uniform[0, 5] distribution_:
 
-```{R uniform_distribution}
+```{r uniform_distribution}
 library(tidyverse)
 set.seed(1234)
 
-size10_df <- tibble(
-  unif_sample <- runif(10, 0, 5),
-  log_vec_gr2 <- c("unif_sample" > 2),
-  char_vec_ln10 <- c("I", "do", "not", "know", "what", "I", "am", "doing", "right", "now"),
-  fact_vec_ln10 <- factor(c("one", "two", "three", "one", "one", "three", "two", "two", "two", "three")),
+size10_df = tibble(
+  unif_sample = runif(10, 0, 5),
+  log_vec_gr2 = c("unif_sample" > 2),
+  char_vec_ln10 = c("I", "do", "not", "know", "what", "I", "am", "doing", "right", "now"),
+  fact_vec_ln10 = factor(c("one", "two", "three", "one", "one", "three", "two", "two", "two", "three"))
 )
 ```
+
+## Taking the mean of log_vec_gr2
+
+```{r mean_log_vec_gr2, results='hide'}
+mean(size10_df$log_vec_gr2)
+```
+The mean of log_vec_gr2 is `r mean(size10_df$log_vec_gr2)`
+
+While I get a result,this doesn't really make sense as there shouldn't be numerical values attached to a logical vector. In this case the logical vector has been interpreted as numerical, with "TRUE" meaning "1" and "FALSE" meaning "0"
+
+## Taking the mean of char_vec_ln10
+
+```{r mean_char_vec_10, results='hide'}
+mean(size10_df$char_vec_ln10)
+```
+The returned result is a warning message and a returned missing value, NA.
+
+We cannot obtain the mean of a character vector, as it is not numeric.
+
+## Taking the mean of fact_vec_ln10
+
+```{r mean_fact_vec_ln10, results='hide'}
+mean(size10_df$fact_vec_ln10)
+```
+The returned result is a warning message and a returned missing value, NA.
+
+We cannot obtain the mean of a factor vector, as it is not numeric.
 
