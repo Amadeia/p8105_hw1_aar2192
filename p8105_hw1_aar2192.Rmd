@@ -12,6 +12,7 @@ Here's a **code chunk** that samples from a _uniform[0, 5] distribution_:
 
 ```{R uniform_distribution}
 library(tidyverse)
+set.seed(1234)
 
 size10_df <- tibble(
   unif_sample <- runif(10, 0, 5)
