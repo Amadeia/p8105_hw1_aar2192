@@ -16,7 +16,9 @@ set.seed(1234)
 
 size10_df <- tibble(
   unif_sample <- runif(10, 0, 5),
-  log_vec_gr2 <- c("unif_sample" > 2)
+  log_vec_gr2 <- c("unif_sample" > 2),
+  char_vec_ln10 <- c("I", "do", "not", "know", "what", "I", "am", "doing", "right", "now"),
+  fact_vec_ln10 <- factor(c("one", "two", "three", "one", "one", "three", "two", "two", "two", "three")),
 )
 ```
 
