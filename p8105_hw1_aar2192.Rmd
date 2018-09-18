@@ -4,27 +4,17 @@ author: "Amadeia Rector"
 date: "9/18/2018"
 output: github_document
 ---
+This is homework 1 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+# Problem 1
+
+Here's a **code chunk** that samples from a _uniform[0, 5] distribution_:
+
+```{R uniform_distribution}
+library(tidyverse)
+
+size10_df <- tibble(
+  unif_sample <- runif(10, 0, 5)
+)
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
