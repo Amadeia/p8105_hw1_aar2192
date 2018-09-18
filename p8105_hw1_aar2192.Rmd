@@ -64,3 +64,16 @@ as.numeric(as.character(size10_df$fact_vec_ln10))
 ```
 The character vector that is first turned into a factor variable and then a numeric vector now has numeric values. Specifically, because I used 8 unique words in my characters, the numeric values include numbers 1-8, with 4 repeated two times.
 However, the factor vector that is first turned into a character variable and then coerced into numeric gives NA results since a character vector cannot be turned numeric unless it is first turned into a factor.
+
+# Problem 2
+```{r Normal_distrib}
+set.seed(1234)
+norm_1000_df = tibble(
+  x = rnorm(1000),
+  y = rnorm(1000),
+  log_vec_xy = c(x+y > 0),
+  num_conversion = as.numeric(log_vec_xy),
+  fact_conversion = as.factor(log_vec_xy)
+)
+```
+
