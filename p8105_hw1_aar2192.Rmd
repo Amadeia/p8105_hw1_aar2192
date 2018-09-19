@@ -4,14 +4,17 @@ author: "Amadeia Rector"
 date: "9/18/2018"
 output: github_document
 ---
-This is homework 1 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+This is homework 1! 
 
 # Problem 1
 
-Here's a **code chunk** that samples from a _uniform[0, 5] distribution_:
+### Creating a **data set** with a sample size of 10
 
 ```{r uniform_distribution}
-library(tidyverse)
 set.seed(1234)
 
 size10_df = tibble(
@@ -22,7 +25,7 @@ size10_df = tibble(
 )
 ```
 
-## Taking the mean of log_vec_gr2
+### Taking the **mean** of log_vec_gr2 
 
 ```{r mean_log_vec_gr2, results='hide'}
 mean(size10_df$log_vec_gr2)
@@ -31,7 +34,7 @@ The mean of log_vec_gr2 is `r mean(size10_df$log_vec_gr2)`
 
 While I get a result,this doesn't really make sense as there shouldn't be numerical values attached to a logical vector. In this case the logical vector has been interpreted as numerical, with "TRUE" meaning "1" and "FALSE" meaning "0"
 
-## Taking the mean of char_vec_ln10
+### Taking the **mean** of char_vec_ln10
 
 ```{r mean_char_vec_10, results='hide', warning=FALSE}
 mean(size10_df$char_vec_ln10)
@@ -40,7 +43,7 @@ The returned result is a warning message and a returned missing value, NA.
 
 We cannot obtain the mean of a character vector, as it is not numeric.
 
-## Taking the mean of fact_vec_ln10
+### Taking the **mean** of fact_vec_ln10
 
 ```{r mean_fact_vec_ln10, results='hide', warning=FALSE}
 mean(size10_df$fact_vec_ln10)
@@ -49,7 +52,7 @@ The returned result is a warning message and a returned missing value, NA.
 
 We cannot obtain the mean of a factor vector, as it is not numeric.
 
-## Converting the variables into numeric values
+### Converting the variables into **numeric** values
 
 ```{r convert_numeric, results='hide', warning=FALSE}
 as.numeric(size10_df$log_vec_gr2)
@@ -58,6 +61,7 @@ as.numeric(size10_df$fact_vec_ln10)
 ```
 The logical vector and the factor vector converts to numeric, but the character vector is unable to do so. Instead, NAs are introduced by coercion for the character vector.
 
+### Converting the character variable and factor variable into **numeric** values
 ```{r convert_char, results='hide', warning=FALSE}
 as.numeric(as.factor(size10_df$char_vec_ln10))
 as.numeric(as.character(size10_df$fact_vec_ln10))
@@ -66,6 +70,8 @@ The character vector that is first turned into a factor variable and then a nume
 However, the factor vector that is first turned into a character variable and then coerced into numeric gives NA results since a character vector cannot be turned numeric unless it is first turned into a factor.
 
 # Problem 2
+
+### Creating a **dataframe** from a normal distribution with 5 variables
 ```{r Normal_distrib}
 set.seed(1234)
 norm_1000_df = tibble(
@@ -76,4 +82,6 @@ norm_1000_df = tibble(
   fact_conversion = as.factor(log_vec_xy)
 )
 ```
+The size of the dataset is `r nrow(norm_1000_df)` and the mean and median of _x_ is `r mean(norm_1000_df$x)` and `r median(norm_1000_df$x)`, respectively. The mean and median of _y_ is `r mean(norm_1000_df$y)` and `r median(norm_1000_df$y)`, respectively. The proportion of cases that are TRUE for _log_vec_xy_ is `r length(norm_1000_df$log_vec_xy[norm_1000_df$log_vec_xy==TRUE])`/1000.
 
+### Making a **scatterplot**
