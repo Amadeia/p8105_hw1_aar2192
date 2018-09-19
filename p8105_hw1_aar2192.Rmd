@@ -1,7 +1,7 @@
 ---
 title: "p8105_hw1_aar2192.Rmd"
 author: "Amadeia Rector"
-date: "9/18/2018"
+date: "9/21/2018"
 output: github_document
 ---
 ```{r setup, include=FALSE}
@@ -85,3 +85,18 @@ norm_1000_df = tibble(
 The size of the dataset is `r nrow(norm_1000_df)` and the mean and median of _x_ is `r mean(norm_1000_df$x)` and `r median(norm_1000_df$x)`, respectively. The mean and median of _y_ is `r mean(norm_1000_df$y)` and `r median(norm_1000_df$y)`, respectively. The proportion of cases that are TRUE for _log_vec_xy_ is `r length(norm_1000_df$log_vec_xy[norm_1000_df$log_vec_xy==TRUE])`/1000.
 
 ### Making a **scatterplot**
+
+```{r xy_scatter1}
+xy_plot1 = ggplot(norm_1000_df, aes(x = x, y = y, color= log_vec_xy)) + geom_point()
+
+```
+
+```{r xy_scatter2}
+xy_plot2 = ggplot(norm_1000_df, aes(x = x, y = y, color= num_conversion)) + geom_point()
+
+```
+
+```{r xy_scatter3}
+xy_plot3 = ggplot(norm_1000_df, aes(x = x, y = y, color= fact_conversion)) + geom_point()
+
+```
